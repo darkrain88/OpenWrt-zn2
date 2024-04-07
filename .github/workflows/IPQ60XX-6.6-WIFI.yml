@@ -90,6 +90,7 @@ jobs:
     - name: Install Feeds
       run: |
         cd $OPENWRT_PATH
+        git clone https://github.com/4IceG/luci-app-sms-toolgit package/luci-app-sms-tool   
         git clone --depth=1 https://github.com/zhengmz/luci-app-zerotier.git package/luci-app-zerotier
         git clone https://github.com/sirpdboy/luci-app-ddns-go.git package/ddns-go
         ./scripts/feeds update -a
@@ -167,7 +168,7 @@ jobs:
         body: |
           **This is OpenWrt Firmware for ${{ env.FIRMWARE_TAG }}**
           ### 📒 固件信息(6.6内核-Beta)
-          - 这是带WIFI以及NSS的6.6内核固件
+          - 这是带WIFI以及NSS的6.6内核固件支持5g CPE
           - 💻 这是 ${{ env.FIRMWARE_TAG }} 平台使用的 OpenWrt 固件
           - ⚽ 固件源码: ${{ env.REPO_URL }}
           - 💝 源码分支: ${{ env.REPO_BRANCH }}
