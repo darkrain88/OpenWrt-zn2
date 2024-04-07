@@ -93,6 +93,10 @@ jobs:
         ./scripts/feeds update -a
         ./scripts/feeds install -a
 
+    - name: run diy-script
+      run: |
+        bash $DIY_SCRIPT
+
     - name: Apply patches   
       run: |
         git config --global user.name "OpenWrt Builder"
